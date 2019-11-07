@@ -3,6 +3,7 @@ package com.epam.shop.service;
 import com.epam.shop.dao.UserDao;
 import com.epam.shop.entity.User;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -61,4 +62,31 @@ public class UserService {
         UserDao dao = new UserDao();
         dao.changeUserPassword(currUserId, newUserPassword);
     }
+
+    public String getClients() {
+        UserDao productDao = new UserDao();
+        List<User> userList = productDao.getClients();
+        StringBuilder data = new StringBuilder();
+        String line = "----------------------------------------------------------------------\n";
+        data.append(line);
+        data.append(String.format("%5s %15s %15s %15s %15s %n", "id", "name", "login", "password", "role"));
+        data.append(line);
+        for (User u : userList) {
+            data.append(String.format("%5s %15s %15s %15s %15s %n",
+                    u.getId(), u.getName(), u.getLogin(), u.getPassword(),u.getRole()));
+        }
+        data.append(line);
+        return data.toString();
+    }
+
+    public void setUserAsNull(int userId) {
+        UserDao userDao = new UserDao();
+        Optional<User> user= userDao.getUser(userId);
+        if (!user.isPresent())
+            return;
+        userDao.SetAsNull(user.get());
+
+    }
+
+
 }

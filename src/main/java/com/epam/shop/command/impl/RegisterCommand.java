@@ -4,7 +4,6 @@ import com.epam.shop.command.Command;
 import com.epam.shop.entity.User;
 import com.epam.shop.entity.pages.Page;
 import com.epam.shop.entity.pages.impl.BackPage;
-import com.epam.shop.entity.pages.impl.HomePage;
 import com.epam.shop.reader.Reader;
 import com.epam.shop.service.UserService;
 

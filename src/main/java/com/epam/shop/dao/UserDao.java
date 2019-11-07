@@ -5,6 +5,7 @@ import com.epam.shop.singelton.SingletonOnlineShop;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * This class realize UserDAO
@@ -62,5 +63,16 @@ public class UserDao {
         if (!user.isPresent())
             return;
         user.get().setPassword(newUserPassword);
+    }
+
+
+    public List<User> getClients() {
+        return users.stream()
+                .filter(u -> u.getRole().equals("client"))
+                .collect(Collectors.toList());
+    }
+
+    public void SetAsNull(User user) {
+        this.users.remove(user);
     }
 }

@@ -26,24 +26,28 @@ public class CommandFactory {
             case 2:
                 return new RegisterCommand();
             case 3:
+                return new GoToClientInformationCommand();
             case 4:
+                return  new GoToProductsInformationCommand();
             case 5:
             case 6:
             case 7:
+                return new DeactivateClientCommand();
             case 8:
-                return  new AddProductCommand();
             case 9:
-                return new DeleteProductCommand();
             case 10:
-                return new ChangeReferenceCommand();
             case 11:
-                return  new ChangeNameCommand();
+                return new AddNewProductCommand();
             case 12:
-                return  new ChangeDescriptionCommand();
+                return new SetProductAsNullCommand();
             case 13:
-                return new ChangePriceCommand();
+                return new ChangeProductNameCommand();
             case 14:
-                return new ChangeQuantityCommand();
+                return new ChangeProductDescriptionCommand();
+            case 15:
+                return new ChangeProductPriceCommand();
+            case 16:
+                return new ChangeProductStatusCommand();
 
 
 
