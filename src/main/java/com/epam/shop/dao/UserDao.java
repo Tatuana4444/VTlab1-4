@@ -37,6 +37,11 @@ public class UserDao {
                         && login.equals(u.getLogin()))
                 .findFirst();
     }
+    public Optional<User> isAvailable(int userId) {
+        return users.stream()
+                .filter(u -> userId ==u.getId())
+                .findFirst();
+    }
 
     public Optional<User> getUser(int currUserId) {
         return users.stream()
@@ -44,25 +49,40 @@ public class UserDao {
                 .findFirst();
     }
 
-    public void changeUserName(int currUserId, String newUserName) {
-        Optional<User> user=getUser(currUserId);
-        if (!user.isPresent())
-            return;
-        user.get().setName(newUserName);
+    public boolean changeUserName(int userId, String newUserName) {
+        return users.stream()
+                .map(p->{
+                    if (p.getId()==userId){
+                        p.setName(newUserName);
+                        return true;
+                    }
+                    return false;
+                })
+                .count()==1;
     }
 
-    public void changeUserLogin(int currUserId, String newUserLogin) {
-        Optional<User> user=getUser(currUserId);
-        if (!user.isPresent())
-            return;
-        user.get().setLogin(newUserLogin);
+    public boolean changeUserLogin(int userId, String newUserLogin) {
+        return users.stream()
+                .map(p->{
+                    if (p.getId()==userId){
+                        p.setLogin(newUserLogin);
+                        return true;
+                    }
+                    return false;
+                })
+                .count()==1;
     }
 
-    public void changeUserPassword(int currUserId, String newUserPassword) {
-        Optional<User> user=getUser(currUserId);
-        if (!user.isPresent())
-            return;
-        user.get().setPassword(newUserPassword);
+    public boolean changeUserPassword(int userId, String newUserPassword) {
+        return users.stream()
+                .map(p->{
+                    if (p.getId()==userId){
+                        p.setPassword(newUserPassword);
+                        return true;
+                    }
+                    return false;
+                })
+                .count()==1;
     }
 
 

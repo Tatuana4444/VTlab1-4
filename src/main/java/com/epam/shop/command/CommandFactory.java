@@ -41,13 +41,7 @@ public class CommandFactory {
             case 12:
                 return new SetProductAsNullCommand();
             case 13:
-                return new ChangeProductNameCommand();
-            case 14:
-                return new ChangeProductDescriptionCommand();
-            case 15:
-                return new ChangeProductPriceCommand();
-            case 16:
-                return new ChangeProductStatusCommand();
+                return new ChangeProductCommand();
 
 
 
@@ -65,11 +59,7 @@ public class CommandFactory {
             case 27:
                 return new GoToPaymentCommand();
             case 31:
-                return new ChangeUserNameCommand();
-            case 32:
-                return new ChangeUserLoginCommand();
-            case 33:
-                return new ChangeUserPasswordCommand();
+                return new ChangeUserInformationCommand();
             default:
                 return new GoToHomePageCommand();
         }

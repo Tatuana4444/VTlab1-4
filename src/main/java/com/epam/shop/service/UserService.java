@@ -22,7 +22,11 @@ public class UserService {
         UserDao dao = new UserDao();
         return dao.isAvailable(login,password);
     }
-
+    public boolean isAvailable(int UserId) {
+        UserDao dao = new UserDao();
+        Optional<User> user = dao.isAvailable(UserId);
+        return user.isPresent();
+    }
     /**
      * This method register user in DAO
      * @param user user which needed to register
@@ -48,19 +52,19 @@ public class UserService {
         return data.toString();
     }
 
-    public void changeUserName(int currUserId, String newUserName) {
+    public void changeUserName(int userId, String newUserName) {
         UserDao dao = new UserDao();
-        dao.changeUserName(currUserId, newUserName);
+        dao.changeUserName(userId, newUserName);
     }
 
-    public void changeUserLogin(int currUserId, String newUserLogin) {
+    public void changeUserLogin(int userId, String newUserLogin) {
         UserDao dao = new UserDao();
-        dao.changeUserLogin(currUserId, newUserLogin);
+        dao.changeUserLogin(userId, newUserLogin);
     }
 
-    public void changeUserPassword(int currUserId, String newUserPassword) {
+    public void changeUserPassword(int userId, String newUserPassword) {
         UserDao dao = new UserDao();
-        dao.changeUserPassword(currUserId, newUserPassword);
+        dao.changeUserPassword(userId, newUserPassword);
     }
 
     public String getClients() {

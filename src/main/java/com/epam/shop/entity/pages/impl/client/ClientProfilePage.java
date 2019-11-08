@@ -11,12 +11,10 @@ public class ClientProfilePage implements Page {
         int result;
         CommandFactory commandFactory = new CommandFactory();
         while(true) {
-            System.out.println("1-change name");
-            System.out.println("2-change login");
-            System.out.println("3-change password");
+            System.out.println("1-change information");
             System.out.println("0-exit");
             result = Reader.nextInt();
-            if (result <= 0 || result >3){
+            if (result != 1){
                 break;
             }
             Command command = commandFactory.getCommand(result+30);

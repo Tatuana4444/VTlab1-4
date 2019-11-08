@@ -55,6 +55,7 @@ public class ProductService {
     }
 
     public void changeProductName(int productId, String name) {
+
         ProductDao dao = new ProductDao();
         dao.changeProductName(productId, name);
     }
@@ -72,10 +73,19 @@ public class ProductService {
     }
 
     public void addProduct(String name, String description, int price, boolean status) {
+        ProductDao dao = new ProductDao();
         Product product = new Product();
         product.setName(name);
         product.setDescription(description);
         product.setPrice(price);
         product.setStatus(status);
+        dao.addProduct(product);
+
+    }
+
+    public boolean isAvailable(int productId) {
+        ProductDao dao = new ProductDao();
+        Optional<Product> product = dao.isAvailable(productId);
+        return product.isPresent();
     }
 }

@@ -14,9 +14,9 @@ public class ProductDao {
 
     private List<Product> products = SingletonOnlineShop.getInstance().getProduct();
 
-   /* public void addProduct(Product product) {
+    public void addProduct(Product product) {
         products.add(product);
-    }*/
+    }
 
     /*
     public Optional<Product> getProduct(String name) {
@@ -49,29 +49,53 @@ public class ProductDao {
         this.products.remove(p);
     }
 
-    public void changeProductName(int productId, String name) {
-        Optional<Product> product = getProduct(productId);
-        if(!product.isPresent())
-            return;
-        product.get().setName(name);
+    public Optional<Product> isAvailable(int productId) {
+        return getProduct(productId);
     }
-    public void changeProductDescription(int productId, String description) {
-        Optional<Product> product = getProduct(productId);
-        if(!product.isPresent())
-            return;
-        product.get().setDescription(description);
+
+    public boolean changeProductName(int productId, String name) {
+       return products.stream()
+                .map(p->{
+                    if (p.getId()==productId){
+                        p.setName(name);
+                        return true;
+                    }
+                    return false;
+                })
+                .count()==1;
     }
-    public void changeProductPrice(int productId, int price) {
-        Optional<Product> product = getProduct(productId);
-        if(!product.isPresent())
-            return;
-        product.get().setPrice(price);
+    public boolean changeProductDescription(int productId, String description) {
+        return products.stream()
+                .map(p->{
+                    if (p.getId()==productId){
+                        p.setDescription(description);
+                        return true;
+                    }
+                    return false;
+                })
+                .count()==1;
+    }
+    public boolean changeProductPrice(int productId, int price) {
+        return products.stream()
+                .map(p->{
+                    if (p.getId()==productId){
+                        p.setPrice(price);
+                        return true;
+                    }
+                    return false;
+                })
+                .count()==1;
 
     }
-    public void changeProductStatus(int productId, boolean status) {
-        Optional<Product> product = getProductWithoutStatus(productId);
-        if(!product.isPresent())
-            return;
-        product.get().setStatus(status);
+    public boolean changeProductStatus(int productId, boolean status) {
+        return products.stream()
+                .map(p->{
+                    if (p.getId()==productId){
+                        p.setStatus(status);
+                        return true;
+                    }
+                    return false;
+                })
+                .count()==1;
     }
 }

@@ -17,7 +17,7 @@ public class ClientsInformationPage implements Page {
             if (result != 1){
                 break;
             }
-            Command command = commandFactory.getCommand(result+3);
+            Command command = commandFactory.getCommand(result+6);
             Page page = command.execute();
             page.show();
         }
