@@ -55,7 +55,7 @@ public class ProductDao {
 
     public boolean changeProductName(int productId, String name) {
        return products.stream()
-                .map(p->{
+                .filter(p->{
                     if (p.getId()==productId){
                         p.setName(name);
                         return true;
@@ -66,7 +66,7 @@ public class ProductDao {
     }
     public boolean changeProductDescription(int productId, String description) {
         return products.stream()
-                .map(p->{
+                .filter(p->{
                     if (p.getId()==productId){
                         p.setDescription(description);
                         return true;
@@ -77,7 +77,7 @@ public class ProductDao {
     }
     public boolean changeProductPrice(int productId, int price) {
         return products.stream()
-                .map(p->{
+                .filter(p->{
                     if (p.getId()==productId){
                         p.setPrice(price);
                         return true;
@@ -89,7 +89,7 @@ public class ProductDao {
     }
     public boolean changeProductStatus(int productId, boolean status) {
         return products.stream()
-                .map(p->{
+                .filter(p->{
                     if (p.getId()==productId){
                         p.setStatus(status);
                         return true;

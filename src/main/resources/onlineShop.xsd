@@ -4,11 +4,11 @@
            elementFormDefault="qualified">
 
 
-    <xs:element name="onlineShop" type="tns:onlineShop"/>
+    <xs:element  name="onlineShop" type="tns:onlineShop" />
 
     <xs:complexType name="Product" abstract="true">
         <xs:sequence>
-            <xs:element name="id" type="xs:int"/>
+            <xs:element name="id" type="tns:attribute" />
             <xs:element name="name" type="xs:string"/>
             <xs:element name="description" type="xs:string"/>
             <xs:element name="price">
@@ -24,7 +24,7 @@
 
     <xs:complexType name="User" abstract="true">
         <xs:sequence>
-            <xs:element name="id" type="xs:int"/>
+            <xs:element name="id" type="tns:attribute" />
             <xs:element name="name" type="xs:string"/>
             <xs:element name="login" type="xs:string"/>
             <xs:element name="password" type="xs:string"/>
@@ -41,7 +41,7 @@
 
     <xs:complexType name="Order" abstract="true">
         <xs:sequence>
-            <xs:element name="id" type="xs:int"/>
+            <xs:element name="id" type="tns:attribute" />
             <xs:element name="product" type="tns:Product"/>
             <xs:element name="quantity" type="xs:int"/>
             <xs:element name="userId" type="xs:int"/>
@@ -66,7 +66,11 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="onlineShop">
+    <xs:complexType name="attribute" abstract="true">
+        <xs:attribute name="id" type="xs:int"/>
+    </xs:complexType>
+
+    <xs:complexType name="onlineShop" >
         <xs:sequence>
             <xs:element name="products" type="tns:Products"/>
             <xs:element name="users" type="tns:Users"/>

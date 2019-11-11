@@ -51,7 +51,7 @@ public class UserDao {
 
     public boolean changeUserName(int userId, String newUserName) {
         return users.stream()
-                .map(p->{
+                .filter(p->{
                     if (p.getId()==userId){
                         p.setName(newUserName);
                         return true;
@@ -63,7 +63,7 @@ public class UserDao {
 
     public boolean changeUserLogin(int userId, String newUserLogin) {
         return users.stream()
-                .map(p->{
+                .filter(p->{
                     if (p.getId()==userId){
                         p.setLogin(newUserLogin);
                         return true;
@@ -75,7 +75,7 @@ public class UserDao {
 
     public boolean changeUserPassword(int userId, String newUserPassword) {
         return users.stream()
-                .map(p->{
+                .filter(p->{
                     if (p.getId()==userId){
                         p.setPassword(newUserPassword);
                         return true;
