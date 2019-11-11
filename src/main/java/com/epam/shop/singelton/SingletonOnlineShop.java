@@ -8,10 +8,15 @@ import java.util.ArrayList;
  * Class that implement singleton for online shop
  */
 public class SingletonOnlineShop {
-
+    /**
+     * Constructor
+     */
     private SingletonOnlineShop() {
     }
 
+    /**
+     * Online shop
+     */
     private static OnlineShop shop;
 
     /**

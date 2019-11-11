@@ -11,6 +11,12 @@ import java.io.IOException;
  * Class that save data to file
  */
 public class XmlShopWriter {
+    /**
+     * Write data to file
+     * @param shop online shop
+     * @param fileName name of file
+     * @throws XmlDataException if can't open file
+     */
     public void write(OnlineShop shop, String fileName) throws XmlDataException {
         try {
             XmlMapper xmlMapper = new XmlMapper();

@@ -7,7 +7,14 @@ import com.epam.shop.reader.Reader;
 import com.epam.shop.service.OrderService;
 import com.epam.shop.session.Session;
 
+/**
+ * Class that implements go to payment page
+ */
 public class GoToPaymentCommand implements Command {
+    /**
+     * Implements command go to payment
+     * @return back page
+     */
     @Override
     public Page execute() {
         OrderService orderService = new OrderService();

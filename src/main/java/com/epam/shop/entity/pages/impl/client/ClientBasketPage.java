@@ -5,7 +5,13 @@ import com.epam.shop.command.CommandFactory;
 import com.epam.shop.entity.pages.Page;
 import com.epam.shop.reader.Reader;
 
+/**
+ * Implements client basket page
+ */
 public class ClientBasketPage implements Page {
+    /**
+     * Show commands for client basket
+     */
     @Override
     public void show() {
         int result;

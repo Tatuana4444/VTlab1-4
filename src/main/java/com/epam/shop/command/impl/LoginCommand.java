@@ -11,7 +11,14 @@ import com.epam.shop.session.Session;
 
 import java.util.Optional;
 
+/**
+ * Class that implements login command
+ */
 public class LoginCommand implements Command {
+    /**
+     * Implements command login
+     * @return back page
+     */
     @Override
     public Page execute() {
         UserService service = new UserService();

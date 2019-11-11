@@ -5,7 +5,7 @@ package com.epam.shop.entity.pages;
  */
 public interface Page {
     /**
-     * Show information from this page
+     * Show commands from this page
      */
     void show();
 }

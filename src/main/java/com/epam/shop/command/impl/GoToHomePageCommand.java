@@ -5,12 +5,12 @@ import com.epam.shop.entity.pages.Page;
 import com.epam.shop.entity.pages.impl.BackPage;
 
 /**
- * Implement command go to home page
+ * Class that implement command go to home page
  */
 public class GoToHomePageCommand implements Command {
     /**
-     * Implementation for go to home page command
-     * @return return page
+     * Implements command go to home page
+     * @return back page
      */
     @Override
     public Page execute() {

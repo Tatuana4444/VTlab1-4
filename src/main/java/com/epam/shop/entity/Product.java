@@ -44,8 +44,8 @@ public class Product extends Entity{
     }
 
     /**
-     * Gets the value of the price property.
-     * 
+     * Getter for product price
+     * @return product price
      */
     public int getPrice() {
         return price;
@@ -59,14 +59,27 @@ public class Product extends Entity{
         this.price = value;
     }
 
+    /**
+     * Getter for product status
+     * @return product status
+     */
     public boolean getStatus() {
         return status;
     }
 
+    /**
+     * Setter for product status
+     * @param status product status
+     */
     public void setStatus(boolean status) {
         this.status = status;
     }
 
+    /**
+     * Compare object with this product
+     * @param o object with which it will be compare
+     * @return it will return true if objects are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,7 +91,10 @@ public class Product extends Entity{
                 Objects.equals(name, product.name) &&
                 Objects.equals(description, product.description);
     }
-
+    /**
+     * Do hash code
+     * @return hash code of product
+     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), name, description, price, status);

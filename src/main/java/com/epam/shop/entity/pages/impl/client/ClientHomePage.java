@@ -4,8 +4,13 @@ import com.epam.shop.command.Command;
 import com.epam.shop.command.CommandFactory;
 import com.epam.shop.entity.pages.Page;
 import com.epam.shop.reader.Reader;
-
+/**
+ * Implements client home page
+ */
 public class ClientHomePage implements Page {
+    /**
+     * Show commands for client home page
+     */
     @Override
     public void show() {
         int result;

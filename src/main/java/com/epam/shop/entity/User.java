@@ -13,79 +13,55 @@ public class User extends Entity{
 
 
     /**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * Getter for user name
+     * @return user name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * Setter for user name
+     * @param value user name
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /**
-     * Gets the value of the login property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * Getter for user login
+     * @return user login
      */
     public String getLogin() {
         return login;
     }
 
     /**
-     * Sets the value of the login property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * Setter for user login
+     * @param value user login
      */
     public void setLogin(String value) {
         this.login = value;
     }
 
     /**
-     * Gets the value of the password property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * Getter for user password
+     * @return user password
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * Sets the value of the password property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * Setter for user password
+     * @param value user password
      */
     public void setPassword(String value) {
         this.password = value;
     }
 
     /**
-     * Gettter for product password
+     * Getter for product password
      * @return product password
      */
     public String getRole() {
@@ -99,7 +75,11 @@ public class User extends Entity{
     public void setRole(String value) {
         this.role = value;
     }
-
+    /**
+     * Compare object with this user
+     * @param o object with which it will be compare
+     * @return it will return true if objects are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -111,7 +91,10 @@ public class User extends Entity{
                 Objects.equals(password, user.password) &&
                 Objects.equals(role, user.role);
     }
-
+    /**
+     * Do hash code
+     * @return hash code of user
+     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), name, login, password, role);

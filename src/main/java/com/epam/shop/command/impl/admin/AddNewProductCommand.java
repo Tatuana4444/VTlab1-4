@@ -6,7 +6,14 @@ import com.epam.shop.entity.pages.impl.BackPage;
 import com.epam.shop.reader.Reader;
 import com.epam.shop.service.ProductService;
 
+/**
+ * Class that implements command add new product
+ */
 public class AddNewProductCommand implements Command {
+    /**
+     * Implements command add new product
+     * @return back page
+     */
     @Override
     public Page execute() {
         ProductService service = new ProductService();

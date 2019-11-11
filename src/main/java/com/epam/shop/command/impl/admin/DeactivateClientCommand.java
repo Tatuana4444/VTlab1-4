@@ -6,7 +6,14 @@ import com.epam.shop.entity.pages.impl.BackPage;
 import com.epam.shop.reader.Reader;
 import com.epam.shop.service.UserService;
 
+/**
+ * Class that implements deactivate client command
+ */
 public class DeactivateClientCommand implements Command {
+    /**
+     * Implements command deactivate client
+     * @return back page
+     */
     @Override
     public Page execute() {
         UserService service = new UserService();

@@ -6,11 +6,11 @@ import com.epam.shop.entity.pages.Page;
 import com.epam.shop.reader.Reader;
 
 /**
- * Implement admin's page
+ * Implements admin home page
  */
 public class AdminHomePage implements Page {
     /**
-     * Show information from admin
+     * Show admin commands
      */
     public void show() {
         int result;

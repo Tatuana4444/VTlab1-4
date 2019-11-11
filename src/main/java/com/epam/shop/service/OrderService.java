@@ -7,13 +7,17 @@ import com.epam.shop.entity.Product;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * This class implements user functions
  */
 public class OrderService {
-
+    /**
+     * Insert new order
+     * @param productId product id
+     * @param userId user id
+     * @param quantity product quantity
+     */
     public void insertOrder(int productId, int userId , int quantity) {
         Order order = new Order();
         ProductDao productDao = new ProductDao();
@@ -28,6 +32,11 @@ public class OrderService {
         orderDao.addNewOrder(order);
     }
 
+    /**
+     * Set order with such product id and user id as null
+     * @param productId product id
+     * @param userId user id
+     */
     public void SetOrderAsNull(int productId, int userId) {
         OrderDao orderDao = new OrderDao();
          Optional<Order> order= orderDao.selectOrder(userId, productId);
@@ -37,6 +46,11 @@ public class OrderService {
         orderDao.SetAsNull(o);
     }
 
+    /**
+     * Count total products price in the user basket
+     * @param id user id
+     * @return total price
+     */
     public  int getTotalPrice(int id){
         OrderDao orderDao = new OrderDao();
         List<Order> orderList = orderDao.selectOrders(id);
@@ -47,6 +61,11 @@ public class OrderService {
         return  totalPrice;
     }
 
+    /**
+     * Find all orders such user
+     * @param id user id
+     * @return information about order with such id
+     */
     public String getOrders(int id) {
         OrderDao orderDao = new OrderDao();
         List<Order> orderList = orderDao.selectOrders(id);
@@ -64,6 +83,10 @@ public class OrderService {
         return data.toString();
     }
 
+    /**
+     * Set orders which such user id as null
+     * @param userId user id
+     */
     public void SetOrdersAsNull(int userId) {
         OrderDao orderDao = new OrderDao();
         List<Order> orderList = orderDao.selectOrders(userId);

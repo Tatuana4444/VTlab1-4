@@ -7,7 +7,14 @@ import com.epam.shop.entity.pages.impl.BackPage;
 import com.epam.shop.reader.Reader;
 import com.epam.shop.service.UserService;
 
+/**
+ * Class that implements register command
+ */
 public class RegisterCommand implements Command {
+    /**
+     * Implements register command
+     * @return back page
+     */
     @Override
     public Page execute() {
         UserService service = new UserService();

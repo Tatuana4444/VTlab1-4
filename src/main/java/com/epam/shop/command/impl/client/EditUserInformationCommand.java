@@ -1,18 +1,20 @@
 package com.epam.shop.command.impl.client;
 
 import com.epam.shop.command.Command;
-import com.epam.shop.entity.Product;
-import com.epam.shop.entity.User;
 import com.epam.shop.entity.pages.Page;
 import com.epam.shop.entity.pages.impl.BackPage;
 import com.epam.shop.reader.Reader;
-import com.epam.shop.service.ProductService;
 import com.epam.shop.service.UserService;
 import com.epam.shop.session.Session;
 
-import java.util.Optional;
-
-public class ChangeUserInformationCommand implements Command {
+/**
+ * Class that implements edit user information command
+ */
+public class EditUserInformationCommand implements Command {
+    /**
+     * Implements command edit user information
+     * @return back page
+     */
     @Override
     public Page execute() {
         UserService service = new UserService();

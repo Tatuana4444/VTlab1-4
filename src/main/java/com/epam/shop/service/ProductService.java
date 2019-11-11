@@ -1,18 +1,20 @@
 package com.epam.shop.service;
 
 import com.epam.shop.dao.ProductDao;
-import com.epam.shop.dao.UserDao;
 import com.epam.shop.entity.Product;
-import com.epam.shop.singelton.SingletonOnlineShop;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * This class implements product functions
  */
 public class ProductService {
-
+    /**
+     * Find products that have in description such name
+     * @param name product name
+     * @return information about products that have in description such name
+     */
     public String getProduct(String name) {
         ProductDao productDao = new ProductDao();
         List<Product> productList = productDao.selectProducts(name);
@@ -29,6 +31,10 @@ public class ProductService {
         return data.toString();
     }
 
+    /**
+     * Get products information
+     * @return products information
+     */
     public String getProducts() {
         ProductDao productDao = new ProductDao();
         List<Product> productList = productDao.selectProducts();
@@ -45,6 +51,10 @@ public class ProductService {
         return data.toString();
     }
 
+    /**
+     * Set product with such is as null
+     * @param productId product id
+     */
     public void SetProductAsNull(int productId) {
         ProductDao productDao = new ProductDao();
         Optional<Product> product= productDao.getProduct(productId);
@@ -54,24 +64,54 @@ public class ProductService {
         productDao.SetAsNull(p);
     }
 
+    /**
+     * Edit product name
+     * @param productId product id
+     * @param name product  name
+     */
     public void changeProductName(int productId, String name) {
 
         ProductDao dao = new ProductDao();
         dao.changeProductName(productId, name);
     }
+
+    /**
+     * Edit product description
+     * @param productId product id
+     * @param description product  description
+     */
     public void changeProductDescription(int productId, String description) {
         ProductDao dao = new ProductDao();
         dao.changeProductDescription(productId, description);
     }
+
+    /**
+     * Edit product price
+     * @param productId product id
+     * @param price product price
+     */
     public void changeProductPrice(int productId, int price) {
         ProductDao dao = new ProductDao();
         dao.changeProductPrice(productId, price);
     }
+
+    /**
+     * Edit product status
+     * @param productId product id
+     * @param status product status
+     */
     public void changeProductStatus(int productId, boolean status) {
         ProductDao dao = new ProductDao();
         dao.changeProductStatus(productId, status);
     }
 
+    /**
+     * Add new product
+     * @param name product name
+     * @param description product description
+     * @param price product price
+     * @param status product status
+     */
     public void addProduct(String name, String description, int price, boolean status) {
         ProductDao dao = new ProductDao();
         Product product = new Product();
@@ -83,6 +123,11 @@ public class ProductService {
 
     }
 
+    /**
+     * Check product available
+     * @param productId product id
+     * @return true if there is product with such id, otherwise false
+     */
     public boolean isAvailable(int productId) {
         ProductDao dao = new ProductDao();
         Optional<Product> product = dao.isAvailable(productId);

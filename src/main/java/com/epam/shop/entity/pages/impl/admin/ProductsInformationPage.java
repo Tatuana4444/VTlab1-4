@@ -5,7 +5,13 @@ import com.epam.shop.command.CommandFactory;
 import com.epam.shop.entity.pages.Page;
 import com.epam.shop.reader.Reader;
 
+/**
+ * Implements products information page
+ */
 public class ProductsInformationPage implements Page {
+    /**
+     * Show commands for products information
+     */
     @Override
     public void show() {
         int result;

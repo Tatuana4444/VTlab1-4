@@ -1,15 +1,20 @@
 package com.epam.shop.command.impl.admin;
 
 import com.epam.shop.command.Command;
-import com.epam.shop.entity.Product;
+
 import com.epam.shop.entity.pages.Page;
 import com.epam.shop.entity.pages.impl.BackPage;
 import com.epam.shop.reader.Reader;
 import com.epam.shop.service.ProductService;
 
-import java.util.Optional;
-
-public class ChangeProductCommand implements Command {
+/**
+ * Class that implements command edit product
+ */
+public class EditProductCommand implements Command {
+    /**
+     * Implements command edit product name, description, price or state
+     * @return back page
+     */
     @Override
     public Page execute() {
         ProductService service = new ProductService();

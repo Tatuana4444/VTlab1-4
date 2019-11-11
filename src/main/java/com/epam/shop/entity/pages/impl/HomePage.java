@@ -5,7 +5,13 @@ import com.epam.shop.command.CommandFactory;
 import com.epam.shop.entity.pages.Page;
 import com.epam.shop.reader.Reader;
 
+/**
+ * Implements home page
+ */
 public class HomePage implements Page {
+    /**
+     * Show commands for home page
+     */
     @Override
     public void show() {
 

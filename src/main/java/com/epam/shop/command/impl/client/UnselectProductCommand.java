@@ -7,7 +7,14 @@ import com.epam.shop.reader.Reader;
 import com.epam.shop.service.OrderService;
 import com.epam.shop.session.Session;
 
+/**
+ * Class that implements unselect product command
+ */
 public class UnselectProductCommand implements Command {
+    /**
+     * Implements command unselect product
+     * @return back page
+     */
     @Override
     public Page execute() {
         OrderService service = new OrderService();

@@ -22,6 +22,12 @@ public class UserService {
         UserDao dao = new UserDao();
         return dao.isAvailable(login,password);
     }
+
+    /**
+     * Check user available
+     * @param UserId user id
+     * @return true if there is user with such id, otherwise false
+     */
     public boolean isAvailable(int UserId) {
         UserDao dao = new UserDao();
         Optional<User> user = dao.isAvailable(UserId);
@@ -36,9 +42,14 @@ public class UserService {
         dao.addUser(user);
     }
 
+    /**
+     * Get information about user
+     * @param currUserId user id
+     * @return information about user
+     */
     public String getUser(int currUserId) {
         UserDao dao = new UserDao();
-        Optional<User> user= dao.getUser(currUserId);
+        Optional<User> user= dao.isAvailable(currUserId);
         if (!user.isPresent())
             return "";
         User u = user.get();
@@ -52,21 +63,40 @@ public class UserService {
         return data.toString();
     }
 
+    /**
+     * Edit user name
+     * @param userId user id
+     * @param newUserName new user name
+     */
     public void changeUserName(int userId, String newUserName) {
         UserDao dao = new UserDao();
         dao.changeUserName(userId, newUserName);
     }
 
+    /**
+     * Edit user login
+     * @param userId user id
+     * @param newUserLogin new user login
+     */
     public void changeUserLogin(int userId, String newUserLogin) {
         UserDao dao = new UserDao();
         dao.changeUserLogin(userId, newUserLogin);
     }
 
+    /**
+     * Edit user password
+     * @param userId user if
+     * @param newUserPassword new user password
+     */
     public void changeUserPassword(int userId, String newUserPassword) {
         UserDao dao = new UserDao();
         dao.changeUserPassword(userId, newUserPassword);
     }
 
+    /**
+     * Get information about clients
+     * @return information about clients
+     */
     public String getClients() {
         UserDao productDao = new UserDao();
         List<User> userList = productDao.getClients();
@@ -83,9 +113,13 @@ public class UserService {
         return data.toString();
     }
 
+    /**
+     * Set user with such id as null
+     * @param userId user id
+     */
     public void setUserAsNull(int userId) {
         UserDao userDao = new UserDao();
-        Optional<User> user= userDao.getUser(userId);
+        Optional<User> user= userDao.isAvailable(userId);
         if (!user.isPresent())
             return;
         userDao.SetAsNull(user.get());

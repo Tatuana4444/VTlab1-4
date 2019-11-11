@@ -22,8 +22,7 @@ public class XmlShopParser {
         try {
             Path path = Paths.get(fileName);
             String xmlText = new String(Files.readAllBytes(path));
-            OnlineShop shop = xmlMapper.readValue(xmlText, OnlineShop.class);
-            return shop;
+            return xmlMapper.readValue(xmlText, OnlineShop.class);
         } catch (IOException e) {
             throw new XmlDataException("can't parse file Xml name = [" + fileName + "]", e);
         }
