@@ -1,0 +1,82 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 5.7.14 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database onlineShop;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> use onlineShop
+Database changed
+
+mysql> create table product (id integer auto_increment not null,  name varchar(50) not null,  description varChar(200),  price decimal not null , constraint product_pk primary key(id) );
+Query OK, 0 rows affected (0.58 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_onlineshop |
++----------------------+
+| product              |
++----------------------+
+1 row in set (0.07 sec)
+
+mysql> describe product;
++-------------+---------------+------+-----+---------+----------------+
+| Field       | Type          | Null | Key | Default | Extra          |
++-------------+---------------+------+-----+---------+----------------+
+| id          | int(11)       | NO   | PRI | NULL    | auto_increment |
+| name        | varchar(50)   | NO   |     | NULL    |                |
+| description | varchar(200)  | YES  |     | NULL    |                |
+| price       | decimal(10,0) | NO   |     | NULL    |                |
++-------------+---------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> drop table user;
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> create table user (id integer auto_increment not null,  name varchar(50) not null,  login varChar(50) not null, password varChar(256) not null, role boolean not null default false, constraint product_pk primary key(id) );
+Query OK, 0 rows affected (0.37 sec)
+
+mysql> describe user;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(50)  | NO   |     | NULL    |                |
+| login    | varchar(50)  | NO   |     | NULL    |                |
+| password | varchar(256) | NO   |     | NULL    |                |
+| role     | tinyint(1)   | NO   |     | 0       |                |
++----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> create table orders ( id integer auto_increment not null, product_id integer not null , user_id integer not null, quantity integer not null,  constraint order_pk primary key(id), constraint user_to_order foreign key (user_id) references user (id), constraint product_to_order foreign key (product_id) references product(id));
+Query OK, 0 rows affected (0.37 sec)
+
+mysql> describe orders;
++------------+---------+------+-----+---------+----------------+
+| Field      | Type    | Null | Key | Default | Extra          |
++------------+---------+------+-----+---------+----------------+
+| id         | int(11) | NO   | PRI | NULL    | auto_increment |
+| product_id | int(11) | NO   | MUL | NULL    |                |
+| user_id    | int(11) | NO   | MUL | NULL    |                |
+| quantity   | int(11) | NO   |     | NULL    |                |
++------------+---------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_onlineshop |
++----------------------+
+| orders               |
+| product              |
+| user                 |
++----------------------+
+3 rows in set (0.00 sec)
